@@ -6,78 +6,163 @@
 <title>LYRA | Let Your Reach Amplify</title>
 
 <style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
 body {
-  margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  scroll-behavior: smooth;
-  background: #0f172a;
-  color: white;
+  background:#0b1220;
+  color:white;
+  scroll-behavior:smooth;
 }
 
+/* NAV */
 nav {
-  position: fixed;
-  width: 100%;
-  background: rgba(15,23,42,0.9);
-  padding: 15px;
-  text-align: center;
-  z-index: 1000;
+  position:fixed;
+  width:100%;
+  background:rgba(11,18,32,0.85);
+  backdrop-filter: blur(10px);
+  padding:15px;
+  text-align:center;
+  z-index:1000;
 }
 
 nav a {
-  margin: 0 15px;
-  color: #38bdf8;
-  text-decoration: none;
-  font-weight: bold;
+  color:#38bdf8;
+  margin:0 15px;
+  text-decoration:none;
+  font-weight:600;
 }
 
-header {
-  height: 100vh;
-  background: url("https://images.unsplash.com/photo-1580281657527-47f249e2f4f5") center/cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+/* HERO */
+.hero {
+  height:100vh;
+  background:url("https://images.unsplash.com/photo-1584515933487-779824d29309") center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
 }
 
-header h1 {
-  font-size: 60px;
+.hero::after {
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
 }
 
+.hero-content {
+  position:relative;
+  z-index:1;
+}
+
+.hero h1 {
+  font-size:64px;
+  letter-spacing:2px;
+}
+
+.hero p {
+  margin-top:10px;
+  font-size:20px;
+  opacity:0.9;
+}
+
+/* SECTION */
 section {
-  padding: 80px 20px;
-  max-width: 1000px;
-  margin: auto;
+  padding:80px 20px;
+  max-width:1100px;
+  margin:auto;
 }
 
+h2 {
+  margin-bottom:20px;
+  color:#38bdf8;
+}
+
+/* CARDS */
 .card {
-  background: #1e293b;
-  padding: 20px;
-  margin: 20px 0;
-  border-radius: 12px;
+  background:#1e293b;
+  padding:20px;
+  border-radius:12px;
+  margin:20px 0;
+  transition:0.3s;
 }
 
-img {
-  width: 100%;
-  border-radius: 12px;
-  margin-top: 10px;
+.card:hover {
+  transform:translateY(-5px);
 }
 
+/* GRID */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+/* STATS */
 .stats {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  display:flex;
+  justify-content:space-around;
+  flex-wrap:wrap;
+  text-align:center;
 }
 
-.stat {
-  text-align: center;
-  margin: 20px;
+.stat h1 {
+  font-size:40px;
+  color:#38bdf8;
 }
 
+/* TIMELINE */
+.timeline {
+  border-left:2px solid #38bdf8;
+  padding-left:20px;
+}
+
+.timeline div {
+  margin-bottom:20px;
+}
+
+/* TESTIMONIAL */
+.testimonial {
+  font-style:italic;
+  opacity:0.9;
+}
+
+/* BUTTON */
+button {
+  padding:12px 25px;
+  border:none;
+  background:#38bdf8;
+  color:black;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+button:hover {
+  background:#0ea5e9;
+}
+
+/* FOOTER */
 footer {
-  text-align: center;
-  padding: 20px;
-  background: #1e293b;
+  text-align:center;
+  padding:20px;
+  background:#1e293b;
 }
+
+/* ANIMATION */
+.fade {
+  opacity:0;
+  transform:translateY(30px);
+  transition:all 0.8s ease;
+}
+
+.fade.show {
+  opacity:1;
+  transform:translateY(0);
+}
+
 </style>
 </head>
 
@@ -87,105 +172,103 @@ footer {
   <a href="#home">Home</a>
   <a href="#about">About</a>
   <a href="#impact">Impact</a>
+  <a href="#programs">Programs</a>
+  <a href="#timeline">Journey</a>
   <a href="#stories">Stories</a>
-  <a href="#contact">Contact</a>
+  <a href="#contact">Donate</a>
 </nav>
 
-<header id="home">
-  <h1>LYRA</h1>
-  <p>Let Your Reach Amplify</p>
-</header>
-
-<section id="about">
-  <h2>About Us</h2>
-  <p>Founded in 2016, LYRA connects underserved communities with essential healthcare services across Southeast Asia.</p>
-  
-  <div class="card">
-    <p>Over the past decade, LYRA has built partnerships with hospitals, mobile clinics, and volunteer networks to bridge healthcare gaps.</p>
-    <img src="https://images.unsplash.com/photo-1584515933487-779824d29309">
+<!-- HERO -->
+<div class="hero" id="home">
+  <div class="hero-content">
+    <h1>LYRA</h1>
+    <p>Let Your Reach Amplify</p>
   </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="fade">
+  <h2>About LYRA</h2>
+  <p>Founded in 2016, LYRA is a regional healthcare outreach initiative connecting underserved communities to life-saving medical support.</p>
 </section>
 
-<section id="impact">
+<!-- IMPACT -->
+<section id="impact" class="fade">
   <h2>Our Impact</h2>
-
   <div class="stats">
-    <div class="stat">
-      <h1 id="patients">0</h1>
-      <p>Patients Helped</p>
-    </div>
-    <div class="stat">
-      <h1 id="funding">0</h1>
-      <p>Funding Raised (USD)</p>
-    </div>
-    <div class="stat">
-      <h1 id="partners">0</h1>
-      <p>Healthcare Partners</p>
-    </div>
+    <div class="stat"><h1 id="p">0</h1><p>Patients</p></div>
+    <div class="stat"><h1 id="f">0</h1><p>Funding ($)</p></div>
+    <div class="stat"><h1 id="pa">0</h1><p>Partners</p></div>
   </div>
 </section>
 
-<section id="stories">
-  <h2>Stories & Updates</h2>
-
-  <div class="card">
-    <h3>Mobile Clinics Reach Rural Sabah</h3>
-    <p>LYRA deployed 5 mobile units providing basic healthcare screenings to over 1,200 residents in remote villages.</p>
-    <img src="https://images.unsplash.com/photo-1576765608622-067973a79f53">
+<!-- PROGRAMS -->
+<section id="programs" class="fade">
+  <h2>Our Programs</h2>
+  <div class="grid">
+    <div class="card">Mobile Clinics Deployment</div>
+    <div class="card">Surgical Aid Funding</div>
+    <div class="card">Telehealth Support</div>
+    <div class="card">Volunteer Medical Missions</div>
   </div>
-
-  <div class="card">
-    <h3>Partnership with Regional Hospitals</h3>
-    <p>New collaborations allow subsidised surgeries for underprivileged patients.</p>
-    <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907">
-  </div>
-
-  <div class="card">
-    <h3>Volunteer Network Expansion</h3>
-    <p>LYRA's volunteer base has grown by 40% in the past year, enabling faster response to healthcare needs.</p>
-    <img src="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb">
-  </div>
-
 </section>
 
-<section id="contact">
-  <h2>Get Involved</h2>
-  <p>Join us in amplifying healthcare access.</p>
-  <button onclick="alert('Thank you for supporting LYRA!')">Donate</button>
+<!-- TIMELINE -->
+<section id="timeline" class="fade">
+  <h2>Our Journey</h2>
+  <div class="timeline">
+    <div>2016 — LYRA founded</div>
+    <div>2018 — First 1,000 patients reached</div>
+    <div>2020 — Expanded to 3 countries</div>
+    <div>2023 — Major hospital partnerships</div>
+    <div>2026 — 10-year milestone approaching</div>
+  </div>
+</section>
+
+<!-- STORIES -->
+<section id="stories" class="fade">
+  <h2>Stories</h2>
+  <div class="card testimonial">“LYRA helped my family access treatment we never thought possible.”</div>
+  <div class="card testimonial">“The mobile clinics changed entire villages.”</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="fade">
+  <h2>Support LYRA</h2>
+  <button onclick="alert('Donation system coming soon')">Donate Now</button>
 </section>
 
 <footer>
-  <p>© 2016 - 2026 LYRA | Let Your Reach Amplify</p>
+  <p>© 2016–2026 LYRA | Let Your Reach Amplify</p>
 </footer>
 
 <script>
-// Animate stats
-let patients = 0;
-let funding = 0;
-let partners = 0;
-
-function animateStats() {
-  let interval = setInterval(() => {
-    if (patients < 12850) patients += 150;
-    if (funding < 2750000) funding += 30000;
-    if (partners < 85) partners += 1;
-
-    document.getElementById("patients").innerText = patients.toLocaleString();
-    document.getElementById("funding").innerText = "$" + funding.toLocaleString();
-    document.getElementById("partners").innerText = partners;
-
-    if (patients >= 12850 && funding >= 2750000 && partners >= 85) {
-      clearInterval(interval);
+// Fade animation
+const faders = document.querySelectorAll('.fade');
+window.addEventListener('scroll', () => {
+  faders.forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 50) {
+      el.classList.add('show');
     }
-  }, 50);
-}
+  });
+});
 
-// trigger when scrolling to impact
-window.addEventListener("scroll", () => {
-  const impact = document.getElementById("impact");
-  const position = impact.getBoundingClientRect().top;
-  if (position < window.innerHeight) {
-    animateStats();
+// Counter
+let started=false;
+window.addEventListener('scroll', () => {
+  const impact=document.getElementById("impact").getBoundingClientRect().top;
+  if(impact<window.innerHeight && !started){
+    started=true;
+    let p=0,f=0,pa=0;
+    let i=setInterval(()=>{
+      if(p<15000)p+=200;
+      if(f<3200000)f+=40000;
+      if(pa<95)pa+=1;
+      document.getElementById("p").innerText=p.toLocaleString();
+      document.getElementById("f").innerText="$"+f.toLocaleString();
+      document.getElementById("pa").innerText=pa;
+      if(p>=15000&&f>=3200000&&pa>=95)clearInterval(i);
+    },40);
   }
 });
 </script>
