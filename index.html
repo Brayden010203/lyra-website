@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LYRA - Let Your Reach Amplify</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: white;
+}
+
+header {
+  padding: 20px;
+  text-align: center;
+  background: #1e293b;
+}
+
+h1 {
+  margin: 0;
+  color: #38bdf8;
+}
+
+section {
+  padding: 40px;
+  text-align: center;
+}
+
+button {
+  padding: 12px 24px;
+  border: none;
+  background: #38bdf8;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+button:hover {
+  background: #0ea5e9;
+}
+
+.card {
+  background: #1e293b;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 400px;
+  border-radius: 12px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #1e293b;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>LYRA</h1>
+  <p>Let Your Reach Amplify</p>
+</header>
+
+<section>
+  <h2>Our Mission</h2>
+  <p>We connect the underprivileged to essential healthcare services.</p>
+
+  <button onclick="showImpact()">See Our Impact</button>
+
+  <div id="impact" style="display:none;" class="card">
+    <h3>Impact</h3>
+    <p>✔ 500+ patients supported</p>
+    <p>✔ 50+ volunteers</p>
+    <p>✔ 20+ healthcare partners</p>
+  </div>
+</section>
+
+<section>
+  <h2>Get Involved</h2>
+  <button onclick="alert('Thank you for supporting LYRA!')">Donate</button>
+</section>
+
+<footer>
+  <p>© 2026 LYRA</p>
+</footer>
+
+<script>
+function showImpact() {
+  document.getElementById("impact").style.display = "block";
+}
+</script>
+
+</body>
+</html>
