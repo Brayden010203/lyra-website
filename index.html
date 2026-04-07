@@ -3,51 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LYRA - Let Your Reach Amplify</title>
+<title>LYRA | Let Your Reach Amplify</title>
+
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
+  scroll-behavior: smooth;
   background: #0f172a;
   color: white;
 }
 
-header {
-  padding: 20px;
+nav {
+  position: fixed;
+  width: 100%;
+  background: rgba(15,23,42,0.9);
+  padding: 15px;
   text-align: center;
-  background: #1e293b;
+  z-index: 1000;
 }
 
-h1 {
-  margin: 0;
+nav a {
+  margin: 0 15px;
   color: #38bdf8;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header {
+  height: 100vh;
+  background: url("https://images.unsplash.com/photo-1580281657527-47f249e2f4f5") center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 60px;
 }
 
 section {
-  padding: 40px;
-  text-align: center;
-}
-
-button {
-  padding: 12px 24px;
-  border: none;
-  background: #38bdf8;
-  color: black;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 8px;
-}
-
-button:hover {
-  background: #0ea5e9;
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin: auto;
 }
 
 .card {
   background: #1e293b;
   padding: 20px;
-  margin: 20px auto;
-  max-width: 400px;
+  margin: 20px 0;
   border-radius: 12px;
+}
+
+img {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.stat {
+  text-align: center;
+  margin: 20px;
 }
 
 footer {
@@ -60,38 +83,111 @@ footer {
 
 <body>
 
-<header>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#impact">Impact</a>
+  <a href="#stories">Stories</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<header id="home">
   <h1>LYRA</h1>
   <p>Let Your Reach Amplify</p>
 </header>
 
-<section>
-  <h2>Our Mission</h2>
-  <p>We connect the underprivileged to essential healthcare services.</p>
-
-  <button onclick="showImpact()">See Our Impact</button>
-
-  <div id="impact" style="display:none;" class="card">
-    <h3>Impact</h3>
-    <p>✔ 500+ patients supported</p>
-    <p>✔ 50+ volunteers</p>
-    <p>✔ 20+ healthcare partners</p>
+<section id="about">
+  <h2>About Us</h2>
+  <p>Founded in 2016, LYRA connects underserved communities with essential healthcare services across Southeast Asia.</p>
+  
+  <div class="card">
+    <p>Over the past decade, LYRA has built partnerships with hospitals, mobile clinics, and volunteer networks to bridge healthcare gaps.</p>
+    <img src="https://images.unsplash.com/photo-1584515933487-779824d29309">
   </div>
 </section>
 
-<section>
+<section id="impact">
+  <h2>Our Impact</h2>
+
+  <div class="stats">
+    <div class="stat">
+      <h1 id="patients">0</h1>
+      <p>Patients Helped</p>
+    </div>
+    <div class="stat">
+      <h1 id="funding">0</h1>
+      <p>Funding Raised (USD)</p>
+    </div>
+    <div class="stat">
+      <h1 id="partners">0</h1>
+      <p>Healthcare Partners</p>
+    </div>
+  </div>
+</section>
+
+<section id="stories">
+  <h2>Stories & Updates</h2>
+
+  <div class="card">
+    <h3>Mobile Clinics Reach Rural Sabah</h3>
+    <p>LYRA deployed 5 mobile units providing basic healthcare screenings to over 1,200 residents in remote villages.</p>
+    <img src="https://images.unsplash.com/photo-1576765608622-067973a79f53">
+  </div>
+
+  <div class="card">
+    <h3>Partnership with Regional Hospitals</h3>
+    <p>New collaborations allow subsidised surgeries for underprivileged patients.</p>
+    <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907">
+  </div>
+
+  <div class="card">
+    <h3>Volunteer Network Expansion</h3>
+    <p>LYRA's volunteer base has grown by 40% in the past year, enabling faster response to healthcare needs.</p>
+    <img src="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb">
+  </div>
+
+</section>
+
+<section id="contact">
   <h2>Get Involved</h2>
+  <p>Join us in amplifying healthcare access.</p>
   <button onclick="alert('Thank you for supporting LYRA!')">Donate</button>
 </section>
 
 <footer>
-  <p>© 2026 LYRA</p>
+  <p>© 2016 - 2026 LYRA | Let Your Reach Amplify</p>
 </footer>
 
 <script>
-function showImpact() {
-  document.getElementById("impact").style.display = "block";
+// Animate stats
+let patients = 0;
+let funding = 0;
+let partners = 0;
+
+function animateStats() {
+  let interval = setInterval(() => {
+    if (patients < 12850) patients += 150;
+    if (funding < 2750000) funding += 30000;
+    if (partners < 85) partners += 1;
+
+    document.getElementById("patients").innerText = patients.toLocaleString();
+    document.getElementById("funding").innerText = "$" + funding.toLocaleString();
+    document.getElementById("partners").innerText = partners;
+
+    if (patients >= 12850 && funding >= 2750000 && partners >= 85) {
+      clearInterval(interval);
+    }
+  }, 50);
 }
+
+// trigger when scrolling to impact
+window.addEventListener("scroll", () => {
+  const impact = document.getElementById("impact");
+  const position = impact.getBoundingClientRect().top;
+  if (position < window.innerHeight) {
+    animateStats();
+  }
+});
 </script>
 
 </body>
